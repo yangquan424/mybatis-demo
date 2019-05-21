@@ -4,8 +4,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace就是接口类-->
 <mapper namespace="com.cheer.mybatis.dao.EmpMapper">
+    <cache></cache>
     <!--    id是接口的方法名-->
     <select id="getEmp" resultType="com.cheer.mybatis.model.Emp">
         select * from emp where empNo = #{empNo}
     </select>
+    <insert id="insert">
+        insert into emp values(#{empno}, #{ename},#{job},#{mgr},
+            #{hiredate},#{sal}, #{com}, #{deptno})
+    </insert>
+    <select id="getEmpAll" resultType="com.cheer.mybatis.model.Emp" useCache="true">
+        select * from emp;
+    </select>
+    <delete id="doDelete">
+        delete from emp where empno = #{empno}
+    </delete>
+    <update id="doUpdate">
+        update emp set empno = #{empno},ename = #{ename},job = #{job},mgr = #{mgr},
+        hiredate = #{hiredate},sal = #{sal},com = #{com},deptno = #{deptno} where empno = #{empno}
+    </update>
 </mapper>

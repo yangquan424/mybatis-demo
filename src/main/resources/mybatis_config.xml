@@ -4,9 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!--    导入外部properties配置文件-->
+
     <properties resource="address.properties">
     </properties>
     <settings>
+        <!-- 全局开启配置文件中所有配置器已经配置的缓存 -->
+        <setting name="cacheEnabled" value="true"/>
         <!--        日志-->
         <setting name="logImpl" value="log4j2"/>
     </settings>
