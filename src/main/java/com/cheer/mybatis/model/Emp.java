@@ -1,8 +1,9 @@
 package com.cheer.mybatis.model;
 
+import java.io.Serializable;
 import java.util.StringJoiner;
 
-public class Emp {
+public class Emp implements Serializable {
     private Integer empno;
     private String ename;
     private String job;

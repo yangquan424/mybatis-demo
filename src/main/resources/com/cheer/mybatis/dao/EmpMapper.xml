@@ -13,8 +13,11 @@
         insert into emp values(#{empno}, #{ename},#{job},#{mgr},
             #{hiredate},#{sal}, #{com}, #{deptno})
     </insert>
-    <select id="getEmpAll" resultType="com.cheer.mybatis.model.Emp" useCache="true">
-        select * from emp;
+    <select id="getEmpAll" resultType="Emp" useCache="true">
+        select * from emp
+    </select>
+    <select id="PagehelpTest" resultType="Emp">
+        select * from emp order by empno
     </select>
     <delete id="doDelete">
         delete from emp where empno = #{empno}

@@ -12,7 +12,20 @@
         <setting name="cacheEnabled" value="true"/>
         <!--        日志-->
         <setting name="logImpl" value="log4j2"/>
+
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+<!--     类型别名-->
+    <typeAliases>
+        <!-- 默认为包下面的类都定义一个别名：就是类名或者类名首字母小写-->
+        <package name="com.cheer.mybatis.model"/>
+    </typeAliases>
+<!--    插件-->
+    <plugins>
+        <!--  interceptor拦截器-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -25,6 +38,9 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="EmpMapper.xml"/>
+<!--        <mapper resource="EmpMapper.xml"/>-->
+<!--        1.配置文件必须与接口在同一包下-->
+<!--        2.配置文件必须与接口名字相同-->
+        <package name="com.cheer.mybatis.dao"/>
     </mappers>
 </configuration>

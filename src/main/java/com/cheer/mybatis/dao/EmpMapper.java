@@ -38,4 +38,10 @@ public interface EmpMapper {
      * @return 返回被影响的行数
      */
     int doUpdate(Emp emp);
+
+    /**
+     * 分页查询测试
+     * @return 返回被查询对象
+     */
+    List<Emp> PagehelpTest();
 }
